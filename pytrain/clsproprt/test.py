@@ -11,6 +11,7 @@ print('\t' + person.mail)
 print('\t' + person.fullname())
 
 person = PerfectPerson('vignesh', 'siva')
+print(repr(person))
 print('using PerfectPerson')
 person.first = 'siva'
 
