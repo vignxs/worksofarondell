@@ -8,7 +8,7 @@ class Person:
     def fullname(self):
         return ('{} {}'.format(self.first.title(), self.last.title()))
 
-
+#for adam example testing gt from vscode
 class PerfectPerson:
     def __repr__(self) -> str:
         return 'class for training on  property'
