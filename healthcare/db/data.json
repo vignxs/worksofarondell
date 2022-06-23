@@ -1,0 +1,28 @@
+
+    {
+        "patient_name" : "vignesh",
+        "patient_address" : "west st",
+        "patient_dob" : "2020-01-01", 
+        "patient_phone" : null,
+        "patient_city" : "chennai",
+        "patient_mrn" : 213, 
+        "patient_gender" : "male", 
+        "patient_st_zip" : 12374, 
+        "ref_to_name" : "magesh",
+        "ref_date" : "2002-12-12", 
+        "ref_to_address" : "south st", 
+        "ref_to_city" : "chennai", 
+        "ref_to_st_zip" : "12332", 
+        "ref_to_phone" : "1223434311", 
+        "ref_to_fax" : 321444, 
+        "ref_by_name" : "dhanush",
+        "ref_by_address" : "east st", 
+        "ref_by_city" : "chennai", 
+        "ref_by_st_zip" : 12352,
+        "ref_by_phone" : 9988774433, 
+        "ref_by_fax" : 123212, 
+        "primary_billing_diagnosis": "cancer", 
+        "ref_reason" : "love to help "  
+    }
+    
+        

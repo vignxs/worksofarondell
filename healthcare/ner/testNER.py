@@ -1,25 +1,27 @@
-from PyPDF2 import PdfFileReader
 import json
-import fitz
+import collections
 
-infile = r"C:\\Users\\hrint\\Documents\\Python2022\\healthcare\\samples\\Referral_Form.pdf"
-# pdf_reader = PdfFileReader(open(infile, "rb"))
+json_string = """
+{
+    "a": 1,
+  
+    "c": {"x":1, "y":2, "z":3, "a":4}
+}
+"""
 
-# dictionary = pdf_reader.getFormTextFields() # returns a python dictionary
+def detect_duplicate_keys(list_of_pairs):
+    key_count = collections.Counter(k for k,v in list_of_pairs)
+    duplicate_keys = ', '.join(k for k,v in key_count.items() if v>1)
 
-# json_data=json.dumps(dictionary) # returns field name and field value in Key-Value pairs of JSON Format
-# print(json_data)
+    if len(duplicate_keys) != 0:
+        raise ValueError('Duplicate key(s) found: {}'.format(duplicate_keys))
 
-# doc = fitz.open(infile) 
-# f = open('test.json', 'w')
-# for page in doc:
-
-#     print(page.get_text('dict'))
-#     data = str(page.get_text('dict'))
-#     f.write(data)
-
-x = 'vignesh'
-y = 'vignesh'
+def validate_data(list_of_pairs):
+    detect_duplicate_keys(list_of_pairs)
+    # More dectection, each of them will raise exception upon invalid
+    # data
+    return dict(list_of_pairs)
 
 
-name = f'name : {x}'
+obj = json.loads(json_string, object_pairs_hook=validate_data)
+print(obj)

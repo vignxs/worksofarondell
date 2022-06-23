@@ -1,6 +1,6 @@
 from configparser import ConfigParser
 from database import Database
-
+from checks import Checkups
 def create_connection_str():
 
     configpath = 'C:\\Users\\hrint\\Documents\\Python2022\\healthcare\\db\\config.ini'
@@ -12,17 +12,15 @@ def create_connection_str():
         
     return dbstr, select, insert
 
+checks = Checkups()
+print(checks)
+f = ('C:/Users/hrint/Documents/Python2022/healthcare/db/data.json')
+checks.prime_checks(f)
 
+# dbstr, select, insert = create_connection_str()
+# infile = open(r'C:/Users/hrint/Documents/Python2022/healthcare/db/data.json', 'r', encoding = 'utf-8')
+# json_data = infile.read()
 
-dbstr, select, insert = create_connection_str()
-infile = open(r'C:/Users/hrint/Documents/Python2022/healthcare/data.json', 'r', encoding = 'utf-8')
-json_data = infile.read()
-
-query = 'insert into referral_info select * from json_populate_recordset(NULL::reffreral_info, %s)'
-
-
-
-
-with Database(connstr = dbstr) as db:
-    db.execute(insert, (json_data,))
+# with Database(connstr = dbstr) as db:
+#     db.execute(insert, (json_data,))
    
